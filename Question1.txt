@@ -1,0 +1,43 @@
+Question 1. Show how this algorithm works on the following strings using pseudo code:
+ - rester
+ - able was i ere i saw elba
+
+
+Rester
+- Call isPalindrome(rester)
+- First and last characters of rester are the same
+- Return true && isPalindrome(este)
+- First and last characters of este are the same
+- Return true && true && isPalindrome(st)
+- First and last of "st" are different.
+- Return true && true && false
+- Print rester is not a palindrome since false was returned
+
+able was i ere i saw elba
+- Call isPalindrome(able was i ere i saw elba)
+- First and last characters of "able was i ere i saw elba" are the same
+- Return true && isPalindrome(ble was i ere i saw elb)
+- First and last characters of "ble was i ere i saw elb" are the same
+- Return true && true && isPalindrome(le was i ere i saw el)
+- First and last characters of "le was i ere i saw el" are the same
+- Return true && true && true && isPalindrome(e was i ere i saw e)
+- First and last characters of "e was i ere i saw e" are the same
+- Return true && true && true && true && isPalindrome( was i ere i saw )
+- First and last characters of " was i ere i saw " are the same
+- Return true && true && true && true && true &&  isPalindrome(was i ere i saw)
+- First and last characters of "was i ere i saw" are the same
+- Return true && true && true && true && true && true && isPalindrome(as i ere i sa)
+- First and last characters of "as i ere i sa" are the same
+- Return true && true && true && true && true && true && true && isPalindrome(s i ere i s)
+- First and last characters of "s i ere i s" are the same
+- Return true && true && true && true && true && true && true && true && isPalindrome( i ere i )
+- First and last characters of " i ere i " are the same
+- Return true && true && true && true && true && true && true && true && true && isPalindrome(i ere i)
+- First and last characters of "i ere i" are the same
+- Return true && true && true && true && true && true && true && true && true && true && isPalindrome( ere )
+- First and last characters of " ere " are the same
+- Return true && true && true && true && true && true && true && true && true && true && true && isPalindrome(ere)
+- First and last characters of "ere" are the same
+- Return true && true && true && true && true && true && true && true && true && true && true && true && isPalindrome(r)
+- Return true overall since r is the only character left
+- print able was i ere i saw elba is a palindrome
