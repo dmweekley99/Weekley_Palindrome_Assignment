@@ -24,7 +24,7 @@ class isPalindrome:
             return True
         
         else: # uses palindrome_check with the string, starting length, and ending length initialized
-            return self.palindrome_check(str, sl, el)
+            return isPalindrome.palindrome_check(str, sl, el)
     
     def print_statement(self, text):
         '''returns a statement to tell the user if the string the entered is a palindrome'''
