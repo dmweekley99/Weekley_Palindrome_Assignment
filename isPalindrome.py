@@ -1,46 +1,29 @@
-class isPalindrome():
-    def __init__(self):
-        '''initializes stack and reverse input string used later'''
-        self.stack = []
-        self.reverse = ""
-    
-    def push(self, char):
-        '''adds character to stack'''
-        self.stack.append(char)
-    
-    def pop(self):
-        '''removes character from stack and adds to string in reverse order'''
-        while self.stack:
-            # while there is a stack, removes the last character from stack
-            character = self.stack.pop()
-             # last character is added to string 
-             # and string is returned when stack is None
-            self.reverse += character
-        return self.reverse
-    
-    def split_char(self, input):
-        '''uses push function to add each individual 
-        character from input from stack'''
-        for char in input:
-            self.push(char)
-
-    def palindrome_determination(self, input):
-        '''function determines if input is the same 
-        as the reverse and returns boolean value'''
-        item = input
-        self.split_char(item)
-        backwards = self.pop()
-        if input == backwards:
+class isPalindrome:
+    def palindrome_check(str, start_length, end_length):
+        if start_length == end_length:
             return True
-        else:
+        
+        if str[start_length] != str[end_length]:
             return False
+        
+        if start_length < end_length + 1:
+            return isPalindrome.palindrome_check(str, start_length + 1, end_length - 1)
+        
+        return True
     
-    def print_statement(self, input):
-        '''function returns user friendly message based 
-        on whether or not the input is a palindrome'''
-        boolean = self.palindrome_determination(input)
-        if boolean == True:
-            return f'{input} is a palindrome.'
-        else: 
-            return f'{input} is not a palindrome.'
-            
+    def initialize_pal(self, str):
+        sl = 0
+        el = len(str) - 1 
+
+        if sl == el:
+            return True
+        
+        else:
+            return isPalindrome.palindrome_check(str, sl, el)
+    
+    def print_statement(self, text):
+        b = self.initialize_pal(text)
+        if b == True:
+            return f'{text} is a palindrome.'
+        else:
+            return f'{text} is not a palindrome.'
